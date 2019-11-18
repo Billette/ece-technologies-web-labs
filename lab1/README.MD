@@ -3,8 +3,6 @@
 
 In this lab, we were asked to do a simple project that runs a 'hello world' app.
 
---------
-
 ## Prerequisites
 
 Before you begin, you first need to install ```yarn``` or  ```npm```. You also need ```nodejs```.
