@@ -1,4 +1,4 @@
-#Lab 1
+# Lab 1
 
 
 In this lab, we were asked to do a simple project that runs a 'hello world' app.
