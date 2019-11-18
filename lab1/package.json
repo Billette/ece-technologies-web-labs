@@ -1,0 +1,28 @@
+{
+  "name": "lab1",
+  "version": "1.0.0",
+  "description": "First lab of ECE Technologies Web",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "./node_modules/.bin/nodemon ",
+    "start": "./node_modules/.bin/nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Billette/ece-technologies-web-labs.git"
+  },
+  "author": "maxime billette",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Billette/ece-technologies-web-labs/issues"
+  },
+  "homepage": "https://github.com/Billette/ece-technologies-web-labs#readme",
+  "devDependencies": {
+    "nodemon": "^1.19.4"
+  },
+  "dependencies": {
+    "bootstrap": "^4.3.1",
+    "nodemon": "^1.19.4"
+  }
+}
