@@ -4,5 +4,6 @@ Here will be posted all the labs done in pair by **Maxime Billette** and **Sarah
 
 For now, labs available are :
    * Lab 1
+   * Lab 2
 
 
