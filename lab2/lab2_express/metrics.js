@@ -5,4 +5,4 @@ module.exports = {
       , { timestamp: new Date('2013-11-04 14:30 UTC').getTime(), value:15}
       ])
     }
-}
+  }
