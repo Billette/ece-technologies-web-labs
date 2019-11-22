@@ -1,4 +1,4 @@
-# Lab 1
+# Lab 2
 
 
 In this lab, we were asked to do a simple project that runs a 'hello world' app.
@@ -6,10 +6,11 @@ In this lab, we were asked to do a simple project that runs a 'hello world' app.
 ## Prerequisites
 
 Before you begin, you first need to install ```yarn``` or  ```npm```. You also need ```nodejs```.
+The dependencies necessaries are ```express```, ```nodemon``` and ```ejs```.
 
 
 
-## Installing Lab 1
+## Installing Lab 2 partie express
 
 Move to your project directory after cloning the repository. Then, run the command :
 ```
@@ -21,11 +22,11 @@ To start the server, just type the command :
     npm run start
 ``` 
 
-## Using Lab 1
+## Using Lab 2 express
 
 The first step when you started the local server is going to the following URL :
 
-[Localhost](http://localhost:8080)
+[Localhost](http://localhost:1337)
 
 You should have the message prompted in plain text :
 
@@ -41,8 +42,7 @@ Typing the following URLs will route you to these pages :
 
 ## Contributors
 
-The authors of this lab are [*Maxime Billette*](https://github.com/Billette) and [*Sarah Lehuby*](https://github.com/SarahL24)
-
+The authors of this lab are [*Maxime Billette*](https://github.com/Billette) and [*Sarah Lehuby*](https://github.com/SarahL24) and [*Amir Messedi*](https://github.com/AmirMessedi)
 
 
 

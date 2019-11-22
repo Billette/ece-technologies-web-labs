@@ -17,7 +17,7 @@ app.get(
 
  app.get(
     '/', 
-    (req, res) => res.send("Description ")
+    (req, res) => res.render('./partials/description.ejs')
   )
 
 
