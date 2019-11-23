@@ -5,7 +5,7 @@ const app = express()
 const port: string = process.env.PORT || '8080'
 
 import path = require('path')
-app.use(express.static(path.join(__dirname, 'public')))
+app.use(express.static(path.join(__dirname, '../public')))
 
 app.set('views', __dirname + "/view")
 app.set('view engine', 'ejs');

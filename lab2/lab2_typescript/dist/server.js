@@ -5,7 +5,7 @@ var metrics_1 = require("./metrics");
 var app = express();
 var port = process.env.PORT || '8080';
 var path = require("path");
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, '../public')));
 app.set('views', __dirname + "/view");
 app.set('view engine', 'ejs');
 app.get('/', function (req, res) {
