@@ -7,8 +7,7 @@
     "forceConsistentCasingInFileNames": true,  /* Disallow inconsistently-cased references to the same file. */
     "outDir": "./dist",
     "moduleResolution":"node",
-    
-  },
+    },
   "include": [
     "src/*", "dist/server.js", "dist/metrics.js"
   ],

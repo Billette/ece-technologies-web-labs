@@ -11,8 +11,7 @@ app.set('views', __dirname + "/view")
 app.set('view engine', 'ejs');
 
 app.get('/', (req: any, res: any) => {
-  res.write('Re Bonjour !')
-  res.end()
+  res.render('./partials/description.ejs')
 })
 
 app.get(

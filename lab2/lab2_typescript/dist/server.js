@@ -9,8 +9,7 @@ app.use(express.static(path.join(__dirname, '../public')));
 app.set('views', __dirname + "/view");
 app.set('view engine', 'ejs');
 app.get('/', function (req, res) {
-    res.write('Re Bonjour !');
-    res.end();
+    res.render('./partials/description.ejs');
 });
 app.get('/hello/:name', function (req, res) {
     res.render('hello.ejs', { name: req.params.name });
