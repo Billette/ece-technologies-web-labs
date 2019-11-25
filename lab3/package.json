@@ -1,0 +1,25 @@
+{
+  "name": "lab3",
+  "version": "1.0.0",
+  "description": "lab3",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "./node_modules/.bin/tsc ",
+    "start": "./node_modules/.bin/ts-node src/server.ts",
+    "dev": "./node_modules/.bin/nodemon "
+  },
+  "author": "sarah lehuby and maxime billette and amir messedi",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/express": "^4.17.2",
+    "@types/node": "^12.12.11",
+    "nodemon": "^2.0.1",
+    "ts-node": "^8.5.2",
+    "typescript": "^3.7.2"
+  },
+  "dependencies": {
+    "ejs": "^2.7.4",
+    "express": "^4.17.1"
+  }
+}
