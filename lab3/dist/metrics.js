@@ -75,10 +75,54 @@ var MetricsHandler = /** @class */ (function () {
         });
     };
     MetricsHandler.prototype.deleteOne = function (key, callback) {
-        console.log("key : ", key);
-        var del = this.db.del(key, callback);
-        //console.log("je sais pas", del)
-        //callback(null, del)
+        var _this = this;
+        var dataSuppressed = [];
+        var rs = this.db.createReadStream()
+            .on('data', function (data) {
+            var datakey = data.key;
+            var userkey = data.key.split(":")[1];
+            if (key === userkey) {
+                var timestamp = data.key.split(":")[2];
+                var metric = new Metric(timestamp, data.value);
+                dataSuppressed.push(metric);
+                _this.db.del(datakey);
+            }
+        })
+            .on('err', function (err) {
+            callback(err, key);
+        })
+            .on('close', function () {
+            console.log('Stream closed');
+        })
+            .on('end', function () {
+            console.log('Stream ended');
+            console.log(dataSuppressed);
+            callback(null, dataSuppressed);
+        });
+    };
+    MetricsHandler.prototype.deleteAll = function (callback) {
+        var _this = this;
+        var dataSuppressed = [];
+        var rs = this.db.createReadStream()
+            .on('data', function (data) {
+            var datakey = data.key;
+            var userkey = data.key.split(":")[1];
+            var timestamp = data.key.split(":")[2];
+            var metric = new Metric(timestamp, data.value);
+            dataSuppressed.push(metric);
+            _this.db.del(datakey);
+        })
+            .on('err', function (err) {
+            callback(err, null);
+        })
+            .on('close', function () {
+            console.log('Stream closed');
+        })
+            .on('end', function () {
+            console.log('Stream ended');
+            console.log(dataSuppressed);
+            callback(null, dataSuppressed);
+        });
     };
     return MetricsHandler;
 }());

@@ -1,14 +1,14 @@
-# Lab 2
+# Lab 3
 
 
-In this lab, we were asked to do a simple project that runs a 'hello world' app.
+In this lab, we were asked to do a simple project that runs a 'hello world' app. We expose a simple REST API that get, delete and post metrics 
 
 ## Prerequisites
 
-Before you begin, you first need to install ```nodejs```.
+Before you begin, you first need to install ```nodejs```. You also need **Postman** to post, get and delete the metrics
 
 
-## Installing Lab 2 TypeScripte
+## Installing Lab 3
 
 Move to your project directory after cloning the repository. Then, run the command :
 ```
@@ -20,21 +20,48 @@ To start the server, just type the command :
     npm start
 ``` 
 
-## Using Lab 2 typeScript
+## Using Lab 3
 
-The first step when you started the local server is going to the following URL :
+To use this lab, you can see the metrics going to this URL :
+* [All metrics](http://localhost:8080/metrics)
+* [Metrics of user 2](http://localhost:8080/metrics/2)
 
-[Localhost](http://localhost:8080)
+For the rest of the lab, you should use **Postman**.
 
-You should have an HTML page describing the actions required to continue.
+#### Get Functions
 
-Typing the following URL will route you to this page :
+In **Postman**, you can perform a *GET* to this URL to see all metrics :
+```
+    http://localhost:8080/metrics
+```
 
-[My name is foo](http://localhost:8080/hello/foo)
+then, to see all metrics of user 2, perform a *GET* to :
+```
+    http://localhost:8080/metrics/2
+```
 
-You can then press the metrics button to display the metrics (dummy data). They are visible by typing this url :
+#### Post Functions
 
-[Metrics.json](http://localhost:8080/metrics.json)
+In **Postman**, you can perform a *POST* to this URL to post a metric of user 2 :
+```
+    http://localhost:8080/metrics/2
+```
+with the following **body** : 
+```JSON
+[
+  { "timestamp":"1384686660000", "value":22 }
+]
+```
+
+Then you should see the new value with the *GET* function.
+
+#### Delete Functions
+
+then, to delete all metrics of user 2, perform a *DELETE* to :
+http://localhost:8080/metrics/2
+
+In **Postman**, you can perform a *DELETE* to this URL to delete all metrics :
+http://localhost:8080/metrics/
 
 ## Contributors
 

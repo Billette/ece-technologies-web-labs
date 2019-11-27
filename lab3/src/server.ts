@@ -53,6 +53,12 @@ app.delete('/metrics/:id', (req:any, res:any) => {
   })
 })
 
+app.delete('/metrics/', (req:any, res:any) => {
+  dbMet.deleteAll( (err: Error | null, result:any) => {
+    if (err) throw err
+    res.status(201).json(result)
+  })
+})
 
 app.listen(port, (err: Error) => {
   if (err) {
@@ -60,9 +66,6 @@ app.listen(port, (err: Error) => {
   }
   console.log(`server is listening on port ${port}`)
 })
-
-
-
 
 /*
 app.get('/metrics.json', (req: any, res: any) => {

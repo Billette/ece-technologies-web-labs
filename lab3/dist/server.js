@@ -46,6 +46,13 @@ app.delete('/metrics/:id', function (req, res) {
         res.status(201).json(result);
     });
 });
+app.delete('/metrics/', function (req, res) {
+    dbMet.deleteAll(function (err, result) {
+        if (err)
+            throw err;
+        res.status(201).json(result);
+    });
+});
 app.listen(port, function (err) {
     if (err) {
         throw err;

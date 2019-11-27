@@ -10,7 +10,20 @@ const met = [
 
 const db = new MetricsHandler('./db/metrics')
 
+
+
+const met2 = [
+  new Metric(`${new Date('2013-12-04 13:00 UTC').getTime()}`, 13),
+  new Metric(`${new Date('2013-12-04 14:25 UTC').getTime()}`, 18),
+  new Metric(`${new Date('2013-12-04 14:45 UTC').getTime()}`, 7)
+]
+
 db.save(0, met, (err: Error | null) => {
   if (err) throw err
-  console.log('Data populated')
 })
+
+db.save(2, met2, (err: Error | null) => {
+  if (err) throw err
+})
+
+console.log("Data populated")

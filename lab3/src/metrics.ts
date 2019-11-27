@@ -92,11 +92,64 @@ export class MetricsHandler {
 
       public deleteOne(
         key : number,
-        callback: (error:Error | null, result:any) => void
-        ){
-          console.log("key : ",key)
-          const del = this.db.del(key,callback)
-          //console.log("je sais pas", del)
-          //callback(null, del)
+
+        callback: (error:Error | null, result:any) => void){
+        let dataSuppressed : Metric[] = []
+
+        const rs = this.db.createReadStream()
+        .on('data', (data) => {
+            const datakey = data.key
+            const userkey = data.key.split(":")[1]
+            if(key === userkey) {
+              const timestamp = data.key.split(":")[2]
+              let metric: Metric = new Metric(timestamp,data.value)
+              dataSuppressed.push(metric)
+
+              this.db.del(datakey)
+            }
+        })
+        .on('err', function (err) {
+          callback(err, key)
+        })
+        .on('close', function () {
+          console.log('Stream closed')
+        })
+        .on('end', function () {
+          console.log('Stream ended')
+          console.log(dataSuppressed)
+          callback(null, dataSuppressed)
+        })
+
         }
+
+      public deleteAll(  
+          callback: (error:Error | null, result:any) => void){
+          let dataSuppressed : Metric[] = []
+  
+          const rs = this.db.createReadStream()
+          .on('data', (data) => {
+              const datakey = data.key
+              const userkey = data.key.split(":")[1]
+
+              const timestamp = data.key.split(":")[2]
+              let metric: Metric = new Metric(timestamp,data.value)
+              dataSuppressed.push(metric)
+
+              this.db.del(datakey)
+              
+          })
+          .on('err', function (err) {
+            callback(err, null)
+          })
+          .on('close', function () {
+            console.log('Stream closed')
+          })
+          .on('end', function () {
+            console.log('Stream ended')
+            console.log(dataSuppressed)
+            callback(null, dataSuppressed)
+          })
+  
+        }
+        
 }
