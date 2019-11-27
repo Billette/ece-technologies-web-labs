@@ -11,12 +11,16 @@ Before you begin, you first need to install ```nodejs```. You also need **Postma
 ## Installing Lab 3
 
 Move to your project directory after cloning the repository. Then, run the command :
-```
+```bash
     npm install
+``` 
+To populate with some dummy data, use this command:
+```bash
+    npm run popdb
 ``` 
 
 To start the server, just type the command :
-```
+```bash
     npm start
 ``` 
 
