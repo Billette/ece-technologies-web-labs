@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="fr">
+    
+    <head>
+        <% include partials/head %>
+    </head>
+    <body class="container">
+        
+        <div class="col-md-6 col-md-offset-3">
+            <div class="jumbotron">
+                        <h1 class="display-4">Hello <%= name %></h1>
+                        <hr class="my-4">
+                        <button class="btn btn-success" id="show-metrics">
+                                Bring the metrics
+                        </button>
+            </div>            
+            <div id="metrics">
+                
+            </div>
+        </div>
+    </body>
+   <script>
+    $('#show-metrics').click((e) => {
+            e.preventDefault();
+            $.getJSON("/metrics.json", {}, (data) => {
+            const content = data.map(d => {
+                return 'timestamp: '+d.timestamp+', value: '+d.value+'<br>';
+            })
+            $('#metrics').append(content.join(""));
+            });
+        })
+   </script> 
+</html>
